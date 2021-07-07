@@ -1,10 +1,27 @@
 const container = document.querySelector('#container');
 
+const clr_btn = document.querySelector('#clear');
+
 const pixel = [];
 
-for(let i=0;i<256;i++){
-    pixel[i] = document.createElement('div');
-    pixel[i].classList.add('pixel');
-    pixel[i].textContent = '0';
-    container.appendChild(pixel[i]);
+makeGrid(16);
+
+function makeGrid(size) {
+    if(size>100) return alert('I said no more than 100 bruh...');
+    if(size===null) return;
+    pixel.forEach( pxl => pxl.remove());
+    pixel.length = 0;
+    for(let i=0;i<size*size;i++){
+        pixel[i] = document.createElement('div');
+        pixel[i].classList.add('pixel');
+        container.appendChild(pixel[i]);
+        container.style.gridTemplateColumns = `repeat(${size},auto)`;
+    }
+    console.log(pixel);
+    pixel.forEach( pxl => pxl.addEventListener('mouseover', (e) => {
+        pxl.style.backgroundColor = `hsl(${Math.random()*360},100%,50%)`;
+        console.log(e.target.attributes.style.value);
+    }));
 }
+
+clr_btn.addEventListener('click', () => makeGrid(prompt('Set canvas size (max: 100)')));

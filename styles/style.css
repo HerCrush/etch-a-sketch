@@ -1,4 +1,31 @@
+body{
+    display: flex;
+}
+
 #container{
-    display:grid;
-    grid-template-columns: repeat(16,1fr);
+    border: solid black 5px;
+    margin: 50px 300px;
+    width: 800px;
+    height: 800px;
+    display: grid;
+    grid-template-columns: repeat(16,auto);
+}
+
+.pixel{
+    background-color: black;
+}
+
+.pixel:hover{
+    background-color: grey;
+}
+
+#clear{
+    margin:25px;
+    border-radius:50%;
+    background-color: red;
+    border: solid black 7px;
+    font-weight: bold;
+    color: white;
+    height: 120px;
+    width: 120px;
 }
