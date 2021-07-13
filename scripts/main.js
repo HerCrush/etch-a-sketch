@@ -9,7 +9,7 @@ makeGrid(16);
 function makeGrid(size) {
     //check passed values
     if(size>100) return alert('I said no more than 100 bruh...');
-    if(size===null) return;
+    if(size===null || size==='') return;
     //clean canvas
     pixel.forEach( pxl => pxl.remove());
     pixel.length = 0;
